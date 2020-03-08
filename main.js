@@ -100,7 +100,7 @@ class TitalJail {
     const order = this.gaols.findIndex(p => p.id === this.me.id)
 
     if (order > -1) return this.say(`${order + 1}번째`)
-    else this.say(this.gaols.map(p => JOB_NAMES[p.job].ko[JOB_NAME_TYPES.KOREAN_SHORT]).join(' '))
+    else this.say(this.gaols.map(p => JOB_NAMES[p.job][JOB_NAME_TYPES.KOREAN_SHORT]).join(' '))
   }
 }
 
