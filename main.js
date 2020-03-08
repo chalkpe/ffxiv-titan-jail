@@ -46,7 +46,9 @@ class TitalJail {
     this.addOverlayListener('LogLine')
     this.addOverlayListener('PartyChanged')
     this.addOverlayListener('ChangePrimaryPlayer')
+    
     window.startOverlayEvents()
+    this.say(new Date().toDateString())
   }
 
   addOverlayListener (type) {
