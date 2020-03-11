@@ -9,9 +9,9 @@ export default class View {
   sayType = null
   images = {}
 
-  constructor (priority, sayType = Job.NameTypes.KOREAN_SHORT) {
+  constructor (app, priority, sayType = Job.NameTypes.KOREAN_SHORT) {
+    this.app = app
     this.sayType = sayType
-    this.app = document.getElementById('app')
 
     this.preloadTiles()
     this.update({ priority })
@@ -57,12 +57,16 @@ export default class View {
   update ({ me, party, priority, gaols }) {
     if (me) {
       this.me = me
-      console.log('primary player changed', me)
+      console.log('player updated', me)
+    }
+
+    if (party) {
+      console.log('party updated', party)
     }
 
     if (priority) {
       this.say(`현재 설정된 돌감옥 우선순위는 ${priority}입니다.`)
-      console.log('priority changed', priority)
+      console.log('priority updated', priority)
     }
 
     if (gaols) {
@@ -70,8 +74,8 @@ export default class View {
       this.say(order ? `${order}번째` : gaols.map(p => p.job.getName(this.sayType)).join(' '))
       
       this.clearTiles()
-      gaols.forEach(async p =>
-        this.app.appendChild(await this.getTile(p.job)))
+      gaols.forEach(async p => this.app.appendChild(await this.getTile(p.job)))
+      console.log('gaols updated', gaols)
     }
   }
 }

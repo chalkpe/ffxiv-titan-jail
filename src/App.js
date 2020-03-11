@@ -5,7 +5,7 @@ import Priority from './Priority.js'
 const TIMEOUT = 1000
 const PATTERN = /.+?:2B6[BC]:.+?:([0-9A-F]+?):/
 
-class TitanJail {
+export class App {
   me = null
   party = []
   gaols = []
@@ -13,12 +13,12 @@ class TitanJail {
   view = null
   priority = null
 
-  constructor () {
+  constructor (app) {
     console.log('app loaded', this)
 
     this.bindListeners()
     window.startOverlayEvents()
-    this.view = new View((this.priority = new Priority()))
+    this.view = new View(app, (this.priority = new Priority()))
   }
 
   addOverlayListener (type) {
@@ -69,5 +69,3 @@ class TitanJail {
     this.view.update({ gaols: this.gaols })
   }
 }
-
-export default TitanJail
