@@ -1,4 +1,3 @@
-const jobs = []
 const data = [
   [19, 'tank', 'PLD', 'Paladin', 'ナイト', '나이트', '나이트', '나'],
   [20, 'dps', 'MNK', 'Monk', 'モンク', '몽크', '몽크', '몽'],
@@ -33,6 +32,7 @@ class Job {
   isDps () { return this.role === 'dps' }
   isTank () { return this.role === 'tank' }
   isHealer () { return this.role === 'healer' }
+
   getName (nameType = Job.NameTypes.DEFAULT) {
     if (nameType === Job.NameTypes.XIVAPI) {
       return this
@@ -48,10 +48,10 @@ class Job {
 }
 
 Job.fromCode = code =>
-  jobs.find(job => job.code === parseInt(code, 10))
+  Job.instances.find(job => job.code === parseInt(code, 10))
 
 Job.fromName = name =>
-  jobs.find(job => job.names.some(n => n.toUpperCase() === name.toUpperCase()))
+  Job.instances.find(job => job.names.some(n => n.toUpperCase() === name.toUpperCase()))
 
 Job.NameTypes = {
   DEFAULT: 0,
@@ -64,9 +64,8 @@ Job.NameTypes = {
   XIVAPI: -1
 }
 
+Job.instances = []
 data.forEach(([code, role, ...names]) =>
-  jobs.push(new Job(code, role, names)))
-
-Job.instances = jobs
+  Job.instances.push(new Job(code, role, names)))
 
 export default Job

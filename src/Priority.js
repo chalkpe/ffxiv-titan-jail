@@ -5,18 +5,18 @@ export default class Priority {
 
   constructor (names = [...'암전건나용사몽닌음기무흑솬적백점학']) {
     const codes = JSON.parse(localStorage.getItem('priority'))
-    this.setPriority(codes ? this.setPriorityByCodes(codes) : this.setPriorityByNames(names))
+    this.set(codes ? this.setByCodes(codes) : this.setByNames(names))
   }
 
-  setPriorityByNames (names) {
-    return this.setPriority(names.map(Job.fromName).filter(x => x))
+  setByNames (names) {
+    return this.set(names.map(Job.fromName).filter(x => x))
   }
 
-  setPriorityByCodes (codes) {
-    return this.setPriority(codes.map(Job.fromCode).filter(x => x))
+  setByCodes (codes) {
+    return this.set(codes.map(Job.fromCode).filter(x => x))
   }
 
-  setPriority (priority) {
+  set (priority) {
     if (priority && priority.length) {
       localStorage.setItem('priority',
         JSON.stringify((this.priority = priority).map(p => p.code)))
