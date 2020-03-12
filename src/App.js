@@ -53,7 +53,7 @@ export class App {
   onEcho (text) {
     const m = text.split(' ')
     if (m[0] !== '돌감옥') return
-    this.priority.setByNames(m.length > 1 && [...m[1]])
+    if (m.length > 1) this.priority.setByNames(m[1])
     this.view.update({ priority: this.priority })
   }
 
