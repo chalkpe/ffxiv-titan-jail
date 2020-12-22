@@ -48,11 +48,10 @@ export class App {
     this.party = party
       .map(p => p.inParty && { ...p, job: Job.fromCode(p.job) })
       .filter(p => p && p.job)
-    
     this.view.update({ party: this.party })
 
-    const me = this.party.find(p => p.id === this.me.id)
-    if (me && this.me.job !== me.job) {
+    const me = this.party.find(p => this.me && this.me.id === p.id)
+    if (me && this.me && me.job !== this.me.job) {
       this.me.job = me.job
       this.view.update({ me: this.me })
     }
