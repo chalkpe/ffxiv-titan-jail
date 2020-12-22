@@ -2,6 +2,7 @@ import Job from './Job.js'
 
 const TTS_ENDPOINT = 'https://www.google.com/speech-api/v1/synthesize'
 const JOB_ICON_ENDPOINT = 'https://raw.githubusercontent.com/xivapi/classjob-icons/master/companion'
+const JOB_NT = Job.NameTypes.KOREAN_SHORTEST
 
 export default class View {
   me = null
@@ -56,6 +57,15 @@ export default class View {
     if (me) {
       this.me = me
       console.log('player updated', me)
+
+      try {
+        if (me.job) ga('send', {
+          hitType: 'event',
+          eventCategory: 'Update',
+          eventAction: 'player',
+          eventLabel: me.job.getName(JOB_NT)
+        })
+      } catch (e) { }
     }
 
     if (party) {
@@ -71,7 +81,7 @@ export default class View {
           hitType: 'event',
           eventCategory: 'Update',
           eventAction: 'priority',
-          eventLabel: priority.jobs.map(j => j.getName(Job.NameTypes.KOREAN_SHORTEST)).join('')
+          eventLabel: priority.jobs.map(j => j.getName(JOB_NT)).join('')
         })
       } catch (e) { }
     }
@@ -89,7 +99,7 @@ export default class View {
           hitType: 'event',
           eventCategory: 'Update',
           eventAction: 'gaols',
-          eventLabel: `${gaols.map(p => p.job.getName(Job.NameTypes.KOREAN_SHORTEST)).join('')} (#${order})`,
+          eventLabel: `${gaols.map(p => p.job.getName(JOB_NT)).join('')} (#${order})`,
         })
       } catch (e) { }
     }

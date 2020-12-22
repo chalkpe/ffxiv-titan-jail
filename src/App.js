@@ -40,7 +40,7 @@ export class App {
   }
 
   onChangePrimaryPlayer ({ charID, charName }) {
-    this.me = { name: charName, id: charID.toString(16) }
+    this.me = { name: charName, id: charID.toString(16), job: null }
     this.view.update({ me: this.me })
   }
 
@@ -50,6 +50,12 @@ export class App {
       .filter(p => p && p.job)
     
     this.view.update({ party: this.party })
+
+    const me = this.party.find(p => p.id === this.me.id)
+    if (me && this.me.job !== me.job) {
+      this.me.job = me.job
+      this.view.update({ me: this.me })
+    }
   }
 
   onLogLine ({ line, rawLine }) {
