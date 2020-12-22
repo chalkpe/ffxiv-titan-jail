@@ -9,12 +9,10 @@ export default class View {
   sayType = null
   images = {}
 
-  constructor (app, priority, sayType = Job.NameTypes.KOREAN_SHORT) {
+  constructor (app, sayType = Job.NameTypes.KOREAN_SHORT) {
     this.app = app
     this.sayType = sayType
-
     this.preloadTiles()
-    this.update({ priority })
   }
 
   say (opts) {

@@ -17,8 +17,8 @@ export class App {
     console.log('app loaded', this)
 
     this.bindListeners()
-    window.startOverlayEvents()
-    this.view = new View(app, (this.priority = new Priority()))
+    this.priority = new Priority()
+    this.view = new View(app)
   }
 
   addOverlayListener (type) {
@@ -27,8 +27,16 @@ export class App {
 
   bindListeners () {
     this.addOverlayListener('LogLine')
+    this.addOverlayListener('ChangeZone')
     this.addOverlayListener('PartyChanged')
     this.addOverlayListener('ChangePrimaryPlayer')
+    window.startOverlayEvents()
+  }
+
+  onChangeZone ({ zoneID }) {
+    if (zoneID === 0x309) {
+      this.view.update({ priority: this.priority })
+    }
   }
 
   onChangePrimaryPlayer ({ charID, charName }) {
