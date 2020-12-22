@@ -65,6 +65,15 @@ export default class View {
     if (priority) {
       this.say(`현재 설정된 돌감옥 우선순위는 ${priority}입니다.`)
       console.log('priority updated', priority)
+
+      try {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Update',
+          eventAction: 'priority',
+          eventLabel: priority.jobs.map(j => j.getName(Job.NameTypes.KOREAN_SHORTEST)).join('')
+        })
+      } catch (e) { }
     }
 
     if (gaols) {
@@ -74,6 +83,15 @@ export default class View {
       this.clearTiles()
       gaols.forEach(async p => this.app.appendChild(await this.getTile(p.job)))
       console.log('gaols updated', gaols)
+
+      try {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Update',
+          eventAction: 'gaols',
+          eventLabel: `${gaols.map(p => p.job.getName(Job.NameTypes.KOREAN_SHORTEST)).join('')} (#${order})`,
+        })
+      } catch (e) { }
     }
   }
 }
