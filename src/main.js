@@ -5,8 +5,3 @@ if (document.referrer.includes('github.com')) {
 
 import('./App.js').then(({ App }) =>
   new App(document.getElementById('app')))
-
-window.dataLayer = window.dataLayer || []
-function gtag () { dataLayer.push(arguments) }
-gtag('js', new Date())
-gtag('config', 'G-P8150Q20VT')
