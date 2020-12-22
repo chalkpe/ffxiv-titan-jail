@@ -17,7 +17,7 @@
 
 ## 설치
 
-> https://chalkpe.github.io/ffxiv-titan-jail
+> `https://chalkpe.github.io/ffxiv-titan-jail`
 
 1. `Advanced Combat Tracker` 실행
 1. `Plugins` → `OverlayPlugin.dll` 탭으로 이동
