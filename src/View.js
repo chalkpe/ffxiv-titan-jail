@@ -93,7 +93,8 @@ export default class View {
       try {
         gtag('event', 'gaols', {
           event_category: 'Update',
-          event_label: `${gaols.map(p => p.job.getName(JOB_NT)).join('')} (#${order})`,
+          event_label: `${gaols.map(p => p.job.getName(JOB_NT)).join('')}`,
+          value: order
         })
       } catch (e) { }
     }
