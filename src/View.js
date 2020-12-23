@@ -59,11 +59,9 @@ export default class View {
       console.log('player updated', me)
 
       try {
-        if (me.job) ga('send', {
-          hitType: 'event',
-          eventCategory: 'Update',
-          eventAction: 'player',
-          eventLabel: me.job.getName(JOB_NT)
+        if (me.job) gtag('event', 'player', {
+          event_category: 'Update',
+          event_label: me.job.getName(JOB_NT)
         })
       } catch (e) { }
     }
@@ -77,11 +75,9 @@ export default class View {
       console.log('priority updated', priority)
 
       try {
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'Update',
-          eventAction: 'priority',
-          eventLabel: priority.jobs.map(j => j.getName(JOB_NT)).join('')
+        gtag('event', 'priority', {
+          event_category: 'Update',
+          event_label: priority.jobs.map(j => j.getName(JOB_NT)).join('')
         })
       } catch (e) { }
     }
@@ -95,11 +91,9 @@ export default class View {
       console.log('gaols updated', gaols)
 
       try {
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'Update',
-          eventAction: 'gaols',
-          eventLabel: `${gaols.map(p => p.job.getName(JOB_NT)).join('')} (#${order})`,
+        gtag('event', 'gaols', {
+          event_category: 'Update',
+          event_label: `${gaols.map(p => p.job.getName(JOB_NT)).join('')} (#${order})`,
         })
       } catch (e) { }
     }
