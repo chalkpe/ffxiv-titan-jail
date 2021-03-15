@@ -12,10 +12,17 @@
 
 ## 요구사항
 
-- [ngld/OverlayPlugin](https://github.com/ngld/OverlayPlugin)
+- **[ngld/OverlayPlugin](https://github.com/ngld/OverlayPlugin)**
 - [Advanced Combat Tracker](https://advancedcombattracker.com)
 
 ## 설치
+
+### 해루봇으로 연결
+
+- [해루봇 → **오버레이** 탭 → `Titan Jail`](https://blog.naver.com/ffxivhaeru/222182321501)
+- **플러그인** 탭에 있는 동명의 다른 플러그인과 혼동 주의
+
+### 직접 추가
 
 > https://chalkpe.github.io/ffxiv-titan-jail
 
@@ -30,9 +37,11 @@
 ## 명령어
 
 - `/혼 돌감옥`
-  - 현재 돌감옥 우선순위를 읽어 줍니다
-- `/혼 돌감옥 암전건나용사몽닌음기무흑솬적백점학`
-  - 돌감옥 우선순위를 설정합니다 (꼭 모든 직업을 다 쓸 필요는 없음)
+  - 현재 돌감옥 우선순위를 읽어 줍니다.
+  - 자동 실행: 절 알테마 파괴작전 입장 시
+- `/혼 돌감옥 나용닌음솬점학`
+  - 돌감옥 우선순위를 설정합니다.
+  - 기본값: `암전건나용사몽닌음기무흑솬적백점학`
 
 ## 라이선스
 
