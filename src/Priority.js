@@ -5,7 +5,7 @@ const FALLBACK = ['tank', 'melee', 'ranged', 'caster', 'healer']
 export default class Priority {
   jobs = []
 
-  constructor (names = '암전건나용사몽닌음기무흑솬적백점학') {
+  constructor (names = '암전건나용사몽닌리음기무흑솬적백점학현') {
     const codes = JSON.parse(localStorage.getItem('priority'))
     this.set(codes ? this.setByCodes(codes) : this.setByNames(names))
   }
