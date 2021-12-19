@@ -16,6 +16,8 @@ const data = [
   [35, 'caster', 'RDM', 'Red Mage', '赤魔道士', '적마도사', '적마', '적'],
   [37, 'tank', 'GNB', 'Gunbreaker', 'ガンブレイカー', '건브레이커', '건브', '건'],
   [38, 'ranged', 'DNC', 'Dancer', '踊り子', '무도가', '무도가', '무']
+  [39, 'melee', 'RPR', 'Reaper', 'リーパー', '리퍼', '리퍼', '리'],
+  [40, 'healer', 'SGE', 'Sage', '賢者', '현자', '현자', '현']
 ]
 
 class Job {
