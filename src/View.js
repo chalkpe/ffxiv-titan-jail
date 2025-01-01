@@ -1,7 +1,7 @@
 import Job from './Job.js'
 
 const TTS_ENDPOINT = 'https://www.google.com/speech-api/v1/synthesize'
-const JOB_ICON_ENDPOINT = 'https://xivapi.com/cj/companion'
+const JOB_ICON_ENDPOINT = 'https://cdn.jsdelivr.net/gh/xivapi/classjob-icons@refs/heads/master/companion'
 const JOB_NT = Job.NameTypes.KOREAN_SHORTEST
 
 export default class View {
